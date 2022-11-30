@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "408189579178",
+    "project_id": "medmotion-49cf0",
+    "storage_bucket": "medmotion-49cf0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:408189579178:android:7fa42db1087274efafc5d3",
+        "android_client_info": {
+          "package_name": "com.medmotion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "408189579178-5k4b6p5i1ah520uct1vcma155g4rfp16.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXMjUyB2phOsSN7hz0eFUwdmsAF01NVDg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "408189579178-5k4b6p5i1ah520uct1vcma155g4rfp16.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

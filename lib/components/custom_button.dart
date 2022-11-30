@@ -4,12 +4,13 @@ class CustomButton extends StatelessWidget {
   final label;
   final onPressed;
   final onLongPress;
-
-  CustomButton({
+  final Color? backgroundColor;
+  const CustomButton({
     Key? key,
     @required this.label,
     @required this.onPressed,
     this.onLongPress,
+    this.backgroundColor,
   }) : super(key: key);
 
   @override
@@ -20,6 +21,10 @@ class CustomButton extends StatelessWidget {
         children: [
           Expanded(
             child: TextButton(
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: backgroundColor ?? Colors.teal[300],
+              ),
               onLongPress: onLongPress,
               onPressed: onPressed,
               child: Padding(

@@ -9,8 +9,8 @@ import 'package:medmotion/components/selected_time.dart';
 import 'package:pdf/widgets.dart' as pdfLib;
 import 'package:share_extend/share_extend.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:alh_pdf_view/lib.dart';
 
 class NewPrescription extends StatefulWidget {
   @override
@@ -44,14 +44,14 @@ class _NewPrescriptionState extends State<NewPrescription> {
   Widget build(BuildContext context) {
     Future<void> _creatPdf() async {
       final pdfLib.Document pdf = pdfLib.Document(deflate: zlib.encode);
-      var ic_hosp = await rootBundle.loadString('assets/hospital.svg');
-      var ic_med = await rootBundle.loadString('assets/doutor.svg');
-      var ic_pac = await rootBundle.loadString('assets/pessoa.svg');
-      var ic_rem = await rootBundle.loadString('assets/remedio.svg');
-      var ic_clock = await rootBundle.loadString('assets/clock.svg');
-      var ic_calendar = await rootBundle.loadString('assets/calendario.svg');
-      var ic_crm = await rootBundle.loadString('assets/crm.svg');
-      var ic_meth = await rootBundle.loadString(remedio["icon"]);
+      var icHosp = await rootBundle.loadString('assets/hospital.svg');
+      var icMed = await rootBundle.loadString('assets/doutor.svg');
+      var icPac = await rootBundle.loadString('assets/pessoa.svg');
+      var icRem = await rootBundle.loadString('assets/remedio.svg');
+      var icClock = await rootBundle.loadString('assets/clock.svg');
+      var icCalendar = await rootBundle.loadString('assets/calendario.svg');
+      var icCrm = await rootBundle.loadString('assets/crm.svg');
+      var icMeth = await rootBundle.loadString(remedio["icon"]);
 
       var day = days
           .where((dia) => dia["isSelected"] as bool)
@@ -62,7 +62,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
             pdfLib.Row(
               children: [
                 pdfLib.SvgImage(
-                  svg: ic_hosp,
+                  svg: icHosp,
                   height: 25,
                   width: 25,
                 ),
@@ -74,7 +74,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
             pdfLib.Row(
               children: [
                 pdfLib.SvgImage(
-                  svg: ic_med,
+                  svg: icMed,
                   height: 25,
                   width: 25,
                 ),
@@ -88,7 +88,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
             pdfLib.Row(
               children: [
                 pdfLib.SvgImage(
-                  svg: ic_crm,
+                  svg: icCrm,
                   height: 25,
                   width: 25,
                 ),
@@ -102,7 +102,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
             pdfLib.Row(
               children: [
                 pdfLib.SvgImage(
-                  svg: ic_pac,
+                  svg: icPac,
                   height: 25,
                   width: 25,
                 ),
@@ -116,7 +116,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
             pdfLib.Row(
               children: [
                 pdfLib.SvgImage(
-                  svg: ic_rem,
+                  svg: icRem,
                   height: 25,
                   width: 25,
                 ),
@@ -130,7 +130,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
             pdfLib.Row(
               children: [
                 pdfLib.SvgImage(
-                  svg: ic_meth,
+                  svg: icMeth,
                   height: 25,
                   width: 25,
                 ),
@@ -144,7 +144,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
             pdfLib.Row(
               children: [
                 pdfLib.SvgImage(
-                  svg: ic_clock,
+                  svg: icClock,
                   height: 25,
                   width: 25,
                 ),
@@ -160,7 +160,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
                 children: [
                   pdfLib.SizedBox(width: 10),
                   pdfLib.Text(
-                    "$hora",
+                    hora,
                   ),
                 ],
               ),
@@ -169,7 +169,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
             pdfLib.Row(
               children: [
                 pdfLib.SvgImage(
-                  svg: ic_calendar,
+                  svg: icCalendar,
                   height: 25,
                   width: 25,
                 ),
@@ -207,12 +207,12 @@ class _NewPrescriptionState extends State<NewPrescription> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF1E53BD),
-        title: Center(child: Text('Receita em PDF')),
+        backgroundColor: const Color(0xFF1E53BD),
+        title: const Center(child: Text('Receita em PDF')),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             verticalDirection: VerticalDirection.down,
@@ -226,14 +226,14 @@ class _NewPrescriptionState extends State<NewPrescription> {
                     "assets/hospital.svg",
                     width: 35,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(10.0),
                         ),
                         border: Border.all(
@@ -241,7 +241,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
                         ),
                       ),
                       child: TextFormField(
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           contentPadding: EdgeInsets.zero,
                           isCollapsed: true,
                           hintText: "Nome do Hospital*",
@@ -258,7 +258,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -267,14 +267,14 @@ class _NewPrescriptionState extends State<NewPrescription> {
                     "assets/doutor.svg",
                     width: 35,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(10.0),
                         ),
                         border: Border.all(
@@ -282,7 +282,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
                         ),
                       ),
                       child: TextFormField(
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           contentPadding: EdgeInsets.zero,
                           isCollapsed: true,
                           hintText: "Médico(a)*",
@@ -299,7 +299,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -308,14 +308,14 @@ class _NewPrescriptionState extends State<NewPrescription> {
                     "assets/crm.svg",
                     width: 35,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(10.0),
                         ),
                         border: Border.all(
@@ -323,7 +323,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
                         ),
                       ),
                       child: TextFormField(
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           contentPadding: EdgeInsets.zero,
                           isCollapsed: true,
                           hintText: "CRM",
@@ -340,7 +340,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -349,14 +349,14 @@ class _NewPrescriptionState extends State<NewPrescription> {
                     "assets/pessoa.svg",
                     width: 35,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(10.0),
                         ),
                         border: Border.all(
@@ -364,7 +364,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
                         ),
                       ),
                       child: TextFormField(
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           contentPadding: EdgeInsets.zero,
                           isCollapsed: true,
                           hintText: "Paciente*",
@@ -381,24 +381,24 @@ class _NewPrescriptionState extends State<NewPrescription> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               RemedioInput(
                 remedio: remedio,
               ),
 
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "   Selecione o(s) dias(s) na semana*:",
                   style: TextStyle(),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Wrap(
@@ -411,7 +411,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
                 ],
               ),
 
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -420,14 +420,14 @@ class _NewPrescriptionState extends State<NewPrescription> {
                     "assets/remedio.svg",
                     width: 35,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(10.0),
                         ),
                         border: Border.all(
@@ -435,7 +435,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
                         ),
                       ),
                       child: TextFormField(
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           contentPadding: EdgeInsets.zero,
                           isCollapsed: true,
                           hintText: "Dosagem e período de uso*",
@@ -452,7 +452,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               SelectedTime(hours: hours),
@@ -466,11 +466,11 @@ class _NewPrescriptionState extends State<NewPrescription> {
                       hours.isNotEmpty) {
                     await _creatPdf();
                   } else {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                         content: Text("Os campos com * são obrigatórios")));
                   }
                 },
-                child: Text('Criar PDF'),
+                child: const Text('Criar PDF'),
               )
             ],
           ),
@@ -490,33 +490,17 @@ class ViewPdf extends StatefulWidget {
 }
 
 class _ViewPdfState extends State<ViewPdf> {
-  PDFDocument? _doc;
-  bool _loading = true;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-    PDFDocument.fromFile(widget.file).then((doc) {
-      setState(() {
-        _doc = doc;
-        _loading = false;
-      });
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xFF1E53BD),
-          title: Text('Receita em PDF'),
+          backgroundColor: const Color(0xFF1E53BD),
+          title: const Text('Receita em PDF'),
           actions: <Widget>[
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.share,
                     color: Colors.white,
                   ),
@@ -528,10 +512,6 @@ class _ViewPdfState extends State<ViewPdf> {
             )
           ],
         ),
-        body: _loading
-            ? Center(
-                child: CircularProgressIndicator(),
-              )
-            : PDFViewer(document: _doc!));
+        body: AlhPdfView(filePath: widget.path));
   }
 }

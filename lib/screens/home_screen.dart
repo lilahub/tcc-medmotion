@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:medmotion/screens/profile_screen.dart';
 import 'package:medmotion/screens/questions_screen.dart';
 import 'package:medmotion/screens/prescription_screen.dart';
-import 'package:medmotion/screens/talk.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -12,11 +11,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
   final List<Widget> telas = [
-    Perguntas(),
-    Talk(),
-    //NewPageScreen("Conversar"),
-    // NewPrescription(),
-    Receitas(),
+    const Perguntas(),
+    const Receitas(),
     ProfileScreen(),
   ];
 
@@ -35,17 +31,12 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: setIndex,
         showUnselectedLabels: true,
         selectedItemColor: Colors.teal,
-        unselectedItemColor: Color(0xFF1E53BD),
-        items: [
+        unselectedItemColor: const Color(0xFF1E53BD),
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.help),
             label: "Perguntas",
             // backgroundColor: Colors.blue,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.sms),
-            label: "Conversar",
-            //   backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.assignment),
@@ -66,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
 class NewPageScreen extends StatelessWidget {
   final String texto;
 
-  NewPageScreen(this.texto);
+  const NewPageScreen(this.texto);
 
   @override
   Widget build(BuildContext context) {

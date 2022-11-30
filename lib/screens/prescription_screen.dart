@@ -15,8 +15,8 @@ class Receitas extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF1E53BD),
-        title: Center(child: Text('Receitas')),
+        backgroundColor: const Color(0xFF1E53BD),
+        title: const Center(child: Text('Receitas')),
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -49,7 +49,7 @@ class Receitas extends StatelessWidget {
                                   var result = await showDialog(
                                       context: context,
                                       builder: (context) => AlertDialog(
-                                            title: Text(
+                                            title: const Text(
                                                 "Deseja remover essa receita?"),
                                             actions: [
                                               TextButton(
@@ -57,7 +57,7 @@ class Receitas extends StatelessWidget {
                                                   Navigator.of(context)
                                                       .pop(false);
                                                 },
-                                                child: Text("Cancelar"),
+                                                child: const Text("Cancelar"),
                                               ),
                                               PrescripButton(
                                                   text: "Ok",

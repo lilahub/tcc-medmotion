@@ -1,4 +1,4 @@
-package com.example.medmotion
+package com.medmotion
 
 import io.flutter.embedding.android.FlutterActivity
 
