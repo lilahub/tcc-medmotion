@@ -208,7 +208,7 @@ class _NewPrescriptionState extends State<NewPrescription> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF1E53BD),
-        title: const Center(child: Text('Receita em PDF')),
+        title: const Center(child: Text('Prescrição em PDF')),
       ),
       body: SingleChildScrollView(
         child: Padding(

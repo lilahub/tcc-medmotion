@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.assignment),
-            label: "Receitas",
+            label: "Prescrições",
             //   backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
