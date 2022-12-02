@@ -16,7 +16,7 @@ Future<void> main() async {
       messagingSenderId: "408189579178",
       appId: "1:408189579178:android:7fa42db1087274efafc5d3");
 
-  // await Firebase.initializeApp(options: firebaseOptions);
+  await Firebase.initializeApp(options: firebaseOptions);
 
   var path = await getApplicationDocumentsDirectory();
   Hive.init(path.path);

@@ -15,13 +15,13 @@ class _DoctorScreenState extends State<DoctorScreen> {
   String endereco = "";
   String telefone = "";
 
-  Future<void> saveDoctor() async {
+  Future<void> saveDoctor(BuildContext context) async {
     DocumentReference doctor =
         FirebaseFirestore.instance.collection('Doctors').doc(crm);
 
     await doctor.get().then((DocumentSnapshot doc) async {
       if (doc.exists) {
-        return await doctor.update({
+        await doctor.update({
           "crm": crm,
           "nome": nome,
           "hospital": hospital,
@@ -29,8 +29,12 @@ class _DoctorScreenState extends State<DoctorScreen> {
           "endereco": endereco,
           "telefone": telefone,
         });
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text("Cadastro realizado!")));
+        Navigator.of(context).pop();
+        return;
       } else {
-        return await doctor.set({
+        await doctor.set({
           "crm": crm,
           "nome": nome,
           "hospital": hospital,
@@ -38,6 +42,11 @@ class _DoctorScreenState extends State<DoctorScreen> {
           "endereco": endereco,
           "telefone": telefone,
         });
+
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text("Cadastro realizado!")));
+        Navigator.of(context).pop();
+        return;
       }
     });
   }
@@ -317,7 +326,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
                       especialidade.isNotEmpty &&
                       endereco.isNotEmpty &&
                       telefone.isNotEmpty) {
-                    await saveDoctor();
+                    await saveDoctor(context);
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                         content: Text("Os campos com * são obrigatórios")));

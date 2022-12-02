@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medmotion/components/custom_button.dart';
 import 'package:medmotion/screens/about_screen.dart';
 import 'package:medmotion/screens/doctor_screen.dart';
+import 'package:medmotion/screens/list_doctors_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   @override
@@ -36,7 +37,8 @@ class ProfileScreen extends StatelessWidget {
             CustomButton(
               backgroundColor: const Color(0xFF1E53BD),
               label: "Lista de médicos parceiros",
-              onPressed: () {},
+              onPressed: () => Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => ListDoctorScreen())),
             ),
           ],
         ),
