@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:brasil_fields/brasil_fields.dart';
 
 class DoctorScreen extends StatefulWidget {
   @override
@@ -198,7 +200,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
               Row(
                 children: [
                   SvgPicture.asset(
-                    "assets/doutor.svg",
+                    "assets/especialidade.svg",
                     width: 35,
                   ),
                   const SizedBox(
@@ -239,7 +241,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
               Row(
                 children: [
                   SvgPicture.asset(
-                    "assets/doutor.svg",
+                    "assets/endereco.svg",
                     width: 35,
                   ),
                   const SizedBox(
@@ -280,7 +282,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
               Row(
                 children: [
                   SvgPicture.asset(
-                    "assets/doutor.svg",
+                    "assets/telefone.svg",
                     width: 35,
                   ),
                   const SizedBox(
@@ -305,6 +307,10 @@ class _DoctorScreenState extends State<DoctorScreen> {
                           focusedBorder: InputBorder.none,
                           enabledBorder: InputBorder.none,
                         ),
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly,
+                          TelefoneInputFormatter(),
+                        ],
                         onChanged: (val) {
                           setState(() {
                             telefone = val;

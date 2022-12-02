@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),
-            label: "Perfil",
+            label: "Informações",
             //   backgroundColor: Colors.blue,
           ),
         ],

@@ -30,6 +30,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   alh_pdf_view: ^1.1.0
+  brasil_fields: ^1.8.0
   cloud_firestore: ^4.1.0
   cupertino_icons: ^1.0.2
   firebase_core: ^2.3.0
