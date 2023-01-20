@@ -25,7 +25,8 @@ class PrescripButton extends StatelessWidget {
             child: Text(
               text,
               style: TextStyle(
-                fontSize: 18,
+                
+                fontSize: 16,
                 fontWeight: FontWeight.w300,
                 letterSpacing: 0.2,
               ),

@@ -44,6 +44,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF1E53BD),
+        titleTextStyle: TextStyle(fontSize: 18), 
         title: Text('Clique no play para traduzir'),
       ),
       // Use a FutureBuilder to display a loading spinner while waiting for the

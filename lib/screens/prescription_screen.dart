@@ -50,27 +50,38 @@ class Receitas extends StatelessWidget {
                                       context: context,
                                       builder: (context) => AlertDialog(
                                             title: const Text(
-                                                "Deseja remover essa prescrição?"),
+                                                "Deseja remover essa prescrição?"),                                                                   
+                                           
                                             actions: [
                                               PrescripButton(
-                                                  text: "Ok",
+                                                  text: "Ok",                                                
                                                   widthButton:
                                                       MediaQuery.of(context)
                                                               .size
                                                               .width *
                                                           0.2,
+                                                  
                                                   nextScreen: () {
                                                     Navigator.of(context)
                                                         .pop(true);
-                                                  }),
+                                                  }
+                                                  ),
                                                   TextButton(
                                                 onPressed: () {
                                                   Navigator.of(context)
                                                       .pop(false);
+                                                      
                                                 },
                                                 child: const Text("Cancelar"),
+                                                
+                                              
+                                                
                                               ),
                                             ],
+                                        
+                                      
+
+
                                           ));
 
                                   if (result ?? false) {
@@ -85,7 +96,8 @@ class Receitas extends StatelessWidget {
             ),
             PrescripButton(
               text: "Escrever nova prescrição",
-              widthButton: MediaQuery.of(context).size.width * 0.6,
+              widthButton: MediaQuery.of(context).size.width * 0.7,
+              
               nextScreen: () => Navigator.of(context)
                   .push(MaterialPageRoute(builder: (_) => NewPrescription())),
             ),
