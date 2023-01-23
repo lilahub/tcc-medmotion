@@ -49,39 +49,31 @@ class Receitas extends StatelessWidget {
                                   var result = await showDialog(
                                       context: context,
                                       builder: (context) => AlertDialog(
+                                            actionsAlignment:
+                                                MainAxisAlignment.end,
                                             title: const Text(
-                                                "Deseja remover essa prescrição?"),                                                                   
-                                           
+                                                "Deseja remover essa prescrição?"),
                                             actions: [
-                                              PrescripButton(
-                                                  text: "Ok",                                                
-                                                  widthButton:
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .width *
-                                                          0.2,
-                                                  
-                                                  nextScreen: () {
-                                                    Navigator.of(context)
-                                                        .pop(true);
-                                                  }
-                                                  ),
-                                                  TextButton(
+                                              TextButton(
                                                 onPressed: () {
                                                   Navigator.of(context)
                                                       .pop(false);
-                                                      
                                                 },
                                                 child: const Text("Cancelar"),
-                                                
-                                              
-                                                
+                                              ),
+                                              TextButton(
+                                                style: TextButton.styleFrom(
+                                                  foregroundColor: Colors.white,
+                                                  backgroundColor:
+                                                      const Color(0xFF1E53BD),
+                                                ),
+                                                onPressed: () {
+                                                  Navigator.of(context)
+                                                      .pop(true);
+                                                },
+                                                child: const Text("Ok"),
                                               ),
                                             ],
-                                        
-                                      
-
-
                                           ));
 
                                   if (result ?? false) {
@@ -97,7 +89,6 @@ class Receitas extends StatelessWidget {
             PrescripButton(
               text: "Escrever nova prescrição",
               widthButton: MediaQuery.of(context).size.width * 0.7,
-              
               nextScreen: () => Navigator.of(context)
                   .push(MaterialPageRoute(builder: (_) => NewPrescription())),
             ),
